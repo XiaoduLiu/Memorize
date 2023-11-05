@@ -9,19 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack (content: {
-            Image(systemName: "globe")
-                .foregroundColor(.brown)
-            Text("Hello, cs139p!").padding()
-        })
-        .padding()
-        .font(.largeTitle)
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+            CardView()
+        }
         .foregroundColor(.orange)
-        .imageScale(.large)
+        .imageScale(.small)
+        .padding()
     }
 }
 
-
+struct CardView: View {
+    var body: some View {
+        ZStack (content: {
+            RoundedRectangle(cornerRadius: 12)
+                .foregroundColor(.white)
+            RoundedRectangle(cornerRadius: 12.0)
+                .strokeBorder(lineWidth: 2)
+            Text("🚗").font(.largeTitle)
+        })
+    }
+}
 
 #Preview {
     ContentView()
