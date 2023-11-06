@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    let emojis = ["🚗", "💀","👻", "🎃"]
+    
     var body: some View {
         HStack {
-            CardView(isFaceUp: true)
-            CardView()
-            CardView()
-            CardView()
+            CardView(content: emojis[0])
+            CardView(content: emojis[1])
+            CardView(content: emojis[2])
+            CardView(content: emojis[3])
         }
         .foregroundColor(.orange)
         .imageScale(.small)
@@ -22,6 +24,7 @@ struct ContentView: View {
 }
 
 struct CardView: View {
+    let content: String
     @State var isFaceUp = true //@State add pointer to the variable
     // let isFaceUp: Bool (after create, it cannot change), starting let first and change to var if need
     var body: some View {
@@ -31,7 +34,7 @@ struct CardView: View {
             if isFaceUp {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
-                Text("🚗").font(.largeTitle)
+                Text(content).font(.largeTitle)
             } else {
                 base.fill()
             }
