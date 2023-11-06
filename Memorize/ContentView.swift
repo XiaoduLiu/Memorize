@@ -23,6 +23,7 @@ struct ContentView: View {
 
 struct CardView: View {
     var isFaceUp: Bool = true
+    // let isFaceUp: Bool (after create, it cannot change)
     var body: some View {
         ZStack (content: {
             //view can only do local variable, if-else (switch) and list of views
