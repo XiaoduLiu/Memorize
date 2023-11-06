@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            CardView()
+            CardView(isFaceUp: true)
             CardView()
             CardView()
             CardView()
@@ -22,7 +22,7 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    var isFaceUp: Bool = true
+    var isFaceUp = true
     // let isFaceUp: Bool (after create, it cannot change), starting let first and change to var if need
     var body: some View {
         ZStack (content: {
