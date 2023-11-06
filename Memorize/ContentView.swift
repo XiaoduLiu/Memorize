@@ -14,6 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             cards
+            Spacer()
             cardCountAdjuster
         }
         .padding()
@@ -30,12 +31,12 @@ struct ContentView: View {
     }
     
     var cards: some View {
-        HStack {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
             ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index])
             }
         }
-        .foregroundColor(.black)
+        .foregroundColor(.orange)
     }
     
     func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
@@ -64,13 +65,13 @@ struct CardView: View {
         ZStack {
             //view can only do local variable, if-else (switch) and list of views
             let base = RoundedRectangle(cornerRadius: 12) //constant using let, variable using var
-            if isFaceUp {
+            Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
                 Text(content).font(.largeTitle)
-            } else {
-                base.fill()
             }
+            .opacity(isFaceUp ? 1 : 0)
+            base.fill().opacity(isFaceUp ? 0 : 1)
         }.onTapGesture {
             isFaceUp.toggle()
         }
