@@ -25,6 +25,7 @@ struct CardView: View {
     var isFaceUp: Bool = true
     var body: some View {
         ZStack (content: {
+            //can only do local variable, if-else and list of views
             var base: RoundedRectangle = RoundedRectangle(cornerRadius: 12)
             if isFaceUp {
                 base.fill(.white)
