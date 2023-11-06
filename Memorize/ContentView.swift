@@ -13,22 +13,29 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                ForEach(0..<cardCount, id: \.self) { index in
-                    CardView(content: emojis[index])
-                }
-            }
-            .foregroundColor(.black)
-            
-            HStack {
-                cardRemover
-                Spacer()
-                cardAdder
-            }
-            .imageScale(.large)
-            .font(.largeTitle)
+            cards
+            cardCountAdjuster
         }
         .padding()
+    }
+    
+    var cardCountAdjuster: some View {
+        HStack {
+            cardRemover
+            Spacer()
+            cardAdder
+        }
+        .imageScale(.large)
+        .font(.largeTitle)
+    }
+    
+    var cards: some View {
+        HStack {
+            ForEach(0..<cardCount, id: \.self) { index in
+                CardView(content: emojis[index])
+            }
+        }
+        .foregroundColor(.black)
     }
     
     var cardRemover: some View {
