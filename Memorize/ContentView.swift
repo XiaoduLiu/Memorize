@@ -26,18 +26,15 @@ struct ContentView: View {
                 }, label: {
                     Image(systemName: "rectangle.stack.badge.minus.fill")
                 })
-                .imageScale(.large)
-                .font(.largeTitle)
                 Spacer()
                 Button(action: {
                     cardCount += 1
                 }, label: {
                     Image(systemName: "rectangle.stack.badge.plus.fill")
                 })
-                .imageScale(.large)
-                .font(.largeTitle)
-                
             }
+            .imageScale(.large)
+            .font(.largeTitle)
         }
         .padding()
     }
