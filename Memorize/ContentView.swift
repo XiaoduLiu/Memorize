@@ -19,14 +19,24 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.black)
+            
             HStack {
-                Button("Add Code") {
-                    cardCount += 1
-                }
-                Spacer()
-                Button("Remove Code") {
+                Button(action: {
                     cardCount -= 1
-                }
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.minus.fill")
+                })
+                .imageScale(.large)
+                .font(.largeTitle)
+                Spacer()
+                Button(action: {
+                    cardCount += 1
+                }, label: {
+                    Image(systemName: "rectangle.stack.badge.plus.fill")
+                })
+                .imageScale(.large)
+                .font(.largeTitle)
+                
             }
         }
         .padding()
