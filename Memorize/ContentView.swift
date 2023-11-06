@@ -21,9 +21,9 @@ struct ContentView: View {
     
     var cardCountAdjuster: some View {
         HStack {
-            cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
+            cardRemover
             Spacer()
-            cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus.fill")
+            cardAdder
         }
         .imageScale(.large)
         .font(.largeTitle)
@@ -44,8 +44,16 @@ struct ContentView: View {
         }, label: {
             Image(systemName: symbol)
         })
+        .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
     }
-
+    
+    var cardRemover: some View {
+        cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
+    }
+    
+    var cardAdder: some View {
+        cardCountAdjuster(by: 1, symbol: "rectangle.stack.badge.plus.fill")
+    }
 }
 
 struct CardView: View {
