@@ -18,8 +18,8 @@ class EmojiMemoryGame {
     }
     
     //intend function
-    func choose(card: MemorizeGame<String>.Card) {
-        model.choose(card: card)
+    func choose(_ card: MemorizeGame<String>.Card) {
+        model.choose(card)
     }
     
     
