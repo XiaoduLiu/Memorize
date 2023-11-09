@@ -17,7 +17,7 @@ class EmojiMemoryGame {
     //make it private to avoid call director from view
     private var model: MemorizeGame<String> = MemorizeGame<String>(
         numberOfPairsOfCards: 4,
-        cardContentFactory: { (index: Int) -> String in
+        cardContentFactory: { index in
             return ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"][index]
         })
     
