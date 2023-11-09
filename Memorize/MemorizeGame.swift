@@ -27,8 +27,10 @@ struct MemorizeGame<CardContent> {
     }
     
     struct Card {
-        var isFaceUp: Bool = false
-        var isMatched: Bool = false
-        var content: CardContent
+        //infer the type
+        var isFaceUp = false
+        var isMatched = false
+        //make content as constant and no change after create
+        let content: CardContent
     }
 }
