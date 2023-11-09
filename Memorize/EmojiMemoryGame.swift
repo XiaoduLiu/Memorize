@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+//global fix the init issue
 let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
 
 class EmojiMemoryGame {
