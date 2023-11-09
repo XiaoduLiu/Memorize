@@ -15,11 +15,10 @@ func createCardContent(forPairAtIndex index: Int) -> String {
 class EmojiMemoryGame {
     
     //make it private to avoid call director from view
-    private var model: MemorizeGame<String> = MemorizeGame<String>(
-        numberOfPairsOfCards: 4,
-        cardContentFactory: { index in
-            return ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"][index]
-        })
+    //for last one as function, the function can move outside
+    private var model: MemorizeGame<String> = MemorizeGame<String>(numberOfPairsOfCards: 4) { index in
+        return ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"][index]
+    }
     
     var cards: Array<MemorizeGame<String>.Card> {
         return model.cards
