@@ -17,7 +17,7 @@ struct MemorizeGame<CardContent> {
         cards = []
         // add numberOfPairsOfCards x 2 cards, if you are not use the index then change it to _ instead of index
         for pairIndex in 0..<numberOfPairsOfCards {
-            let content: CardContent = cardContentFactory(pairIndex)
+            let content = cardContentFactory(pairIndex)
             cards.append(Card(content: content))
             cards.append(Card(content: content))
         }
