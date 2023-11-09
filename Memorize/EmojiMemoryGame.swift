@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-func createCardContent(forPairAtIndex index: Int) -> String {
-    return ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"][index]
-}
-
 class EmojiMemoryGame {
     let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
     
