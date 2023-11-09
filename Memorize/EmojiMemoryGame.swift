@@ -16,7 +16,7 @@ class EmojiMemoryGame {
     
     //make it private to avoid call director from view
     //for last one as function, the function can move outside
-    private var model: MemorizeGame<String> = MemorizeGame<String>(numberOfPairsOfCards: 4) { $0 in
+    private var model: MemorizeGame<String> = MemorizeGame<String>(numberOfPairsOfCards: 4) {
         return ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"][$0]
     }
     
