@@ -8,8 +8,9 @@
 
 import SwiftUI
 
+let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
+
 class EmojiMemoryGame {
-    let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
     
     //make it private to avoid call director from view
     //for last one as function, the function can move outside
