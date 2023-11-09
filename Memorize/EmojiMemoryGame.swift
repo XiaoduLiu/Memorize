@@ -8,10 +8,11 @@
 
 import SwiftUI
 
-//global fix the init issue
-let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
 
 class EmojiMemoryGame {
+    //private static global fix the init issue
+    private static let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
+
     
     //make it private to avoid call director from view
     //for last one as function, the function can move outside
