@@ -17,8 +17,8 @@ struct MemorizeGame<CardContent> {
         cards = []
         // add numberOfPairsOfCards x 2 cards, if you are not use the index then change it to _ instead of index
         for _ in 0..<numberOfPairsOfCards {
-            cards.append(Card(isFaceUp: false, isMatched: false, content: <#T##CardContent#>))
-            cards.append(Card(isFaceUp: false, isMatched: false, content: <#T##CardContent#>))
+            cards.append(Card(content: <#T##CardContent#>))
+            cards.append(Card(content: <#T##CardContent#>))
         }
     }
     
@@ -27,8 +27,8 @@ struct MemorizeGame<CardContent> {
     }
     
     struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
         var content: CardContent
     }
 }
