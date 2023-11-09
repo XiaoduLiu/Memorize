@@ -12,13 +12,14 @@ struct MemorizeGame<CardContent> {
     //only set is private, read is public
     private(set) var cards: Array<Card>
     
-    init(numberOfPairsOfCards: Int) {
+    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         //cards = Array<Card>()
         cards = []
         // add numberOfPairsOfCards x 2 cards, if you are not use the index then change it to _ instead of index
-        for _ in 0..<numberOfPairsOfCards {
-            cards.append(Card(content: <#T##CardContent#>))
-            cards.append(Card(content: <#T##CardContent#>))
+        for pairIndex in 0..<numberOfPairsOfCards {
+            let content: CardContent = cardContentFactory(pairIndex)
+            cards.append(Card(content: content))
+            cards.append(Card(content: content))
         }
     }
     
