@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct EmojiContentView: View {
-    var viewModel: EmojiMemoryGame
+struct EmojiMemoryGameView: View {
+    
+    //never do this way
+    var viewModel: EmojiMemoryGame = EmojiMemoryGame()
     
     let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
     
@@ -51,6 +53,8 @@ struct CardView: View {
     }
 }
 
-#Preview {
-    EmojiContentView()
+struct EmojiMemoryGameView_Preview: PreviewProvider {
+    static var previews: some View {
+        EmojiMemoryGameView()
+    }
 }
