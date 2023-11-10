@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MemorizeGame<CardContent> {
+struct MemoryGame<CardContent> {
     
     //only set is private, read is public
     private(set) var cards: Array<Card>

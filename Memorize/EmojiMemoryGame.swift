@@ -16,21 +16,21 @@ class EmojiMemoryGame {
     
     //make it private to avoid call director from view
     //for last one as function, the function can move outside
-    private var model: MemorizeGame<String> = EmojiMemoryGame.createMemoryGame()
+    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     //make a static function to allow it can be used in init
-    static func createMemoryGame() -> MemorizeGame<String> {
-        return MemorizeGame<String>(numberOfPairsOfCards: 4) { pariIndex in
+    static func createMemoryGame() -> MemoryGame<String> {
+        return MemoryGame<String>(numberOfPairsOfCards: 4) { pariIndex in
             return emojis[pariIndex]
         }
     }
     
-    var cards: Array<MemorizeGame<String>.Card> {
+    var cards: Array<MemoryGame<String>.Card> {
         return model.cards
     }
     
     //intend function
-    func choose(_ card: MemorizeGame<String>.Card) {
+    func choose(_ card: MemoryGame<String>.Card) {
         model.choose(card)
     }
     
