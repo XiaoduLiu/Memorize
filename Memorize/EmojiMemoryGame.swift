@@ -18,7 +18,7 @@ class EmojiMemoryGame {
     //for last one as function, the function can move outside
     private var model: MemorizeGame<String> = EmojiMemoryGame.createMemoryGame()
     
-    
+    //make a static function to allow it can be used in init
     static func createMemoryGame() -> MemorizeGame<String> {
         return MemorizeGame<String>(numberOfPairsOfCards: 4) { pariIndex in
             return emojis[pariIndex]
