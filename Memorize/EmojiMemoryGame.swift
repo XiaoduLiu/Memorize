@@ -15,7 +15,7 @@ class EmojiMemoryGame {
     
     //make a static function to allow it can be used in init
     private static func createMemoryGame() -> MemoryGame<String> {
-        return MemoryGame<String>(numberOfPairsOfCards: 4) { pariIndex in
+        return MemoryGame<String>(numberOfPairsOfCards: 5) { pariIndex in
             if emojis.indices.contains(pariIndex) {
                 return emojis[pariIndex]
             } else {
