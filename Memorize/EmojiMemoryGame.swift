@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     //private static global fix the init issue
     private static let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
     
@@ -23,13 +23,19 @@ class EmojiMemoryGame {
             }
         }
     }
-
+    
     //make it private to avoid call director from view
     //for last one as function, the function can move outside
-    private var model: MemoryGame<String> = createMemoryGame()
+    @Published private var model: MemoryGame<String> = createMemoryGame()
     
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
+    }
+    
+    //MARK: - Intents
+    
+    func shuffle() {
+        model.shuffle()
     }
     
     //intend function

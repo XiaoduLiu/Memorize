@@ -27,6 +27,12 @@ struct MemoryGame<CardContent> {
         
     }
     
+    //otherwise, it will not allow to shuffle self is immutable
+    mutating func shuffle() {
+        cards.shuffle()
+        print(cards)
+    }
+    
     struct Card {
         //infer the type
         var isFaceUp = true
