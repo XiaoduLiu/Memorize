@@ -12,8 +12,6 @@ struct EmojiMemoryGameView: View {
     //never do this way
     var viewModel: EmojiMemoryGame = EmojiMemoryGame()
     
-    let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
-    
     var body: some View {
         ScrollView {
             cards
@@ -22,8 +20,8 @@ struct EmojiMemoryGameView: View {
     }
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
-            ForEach(emojis.indices, id: \.self) { index in
-                CardView(content: emojis[index])
+            ForEach(viewModel.cards.indices, id: \.self) { index in
+                CardView(card: viewModel.cards[index])
                     .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
             }
         }
@@ -33,9 +31,7 @@ struct EmojiMemoryGameView: View {
 }
 
 struct CardView: View {
-    let content: String
-    @State var isFaceUp = true //@State add pointer to the variable
-    // let isFaceUp: Bool (after create, it cannot change), starting let first and change to var if need
+    let card: MemoryGame<String>.Card
     var body: some View {
         ZStack {
             //view can only do local variable, if-else (switch) and list of views
@@ -43,12 +39,10 @@ struct CardView: View {
             Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
-                Text(content).font(.largeTitle)
+                Text(card.content).font(.largeTitle)
             }
-            .opacity(isFaceUp ? 1 : 0)
-            base.fill().opacity(isFaceUp ? 0 : 1)
-        }.onTapGesture {
-            isFaceUp.toggle()
+            .opacity(card.isFaceUp ? 1 : 0)
+            base.fill().opacity(card.isFaceUp ? 0 : 1)
         }
     }
 }
