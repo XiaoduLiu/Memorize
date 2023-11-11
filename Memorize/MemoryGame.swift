@@ -34,12 +34,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     struct Card: Equatable {
-        static func == (lhs: Card, rhs: Card) -> Bool {
-            return lhs.isFaceUp == rhs.isFaceUp &&
-            lhs.isMatched == rhs.isMatched &&
-            lhs.content == rhs.content
-        }
-        
         //infer the type
         var isFaceUp = true
         var isMatched = false
