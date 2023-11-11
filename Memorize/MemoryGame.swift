@@ -23,8 +23,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
     
+    //variable for a func is let constant so you can not change it
     func choose(_ card: Card) {
         print("choose \(card)")
+        card.isFaceUp.toggle()
     }
     
     //otherwise, it will not allow to shuffle self is immutable
