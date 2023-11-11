@@ -24,9 +24,20 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     //variable for a func is let constant so you can not change it
-    func choose(_ card: Card) {
-        print("choose \(card)")
-        card.isFaceUp.toggle()
+    mutating func choose(_ card: Card) {
+        //print("choose \(card)")
+        //card.isFaceUp.toggle() (wrong)
+        let chosenIndex = index(of: card)
+        cards[chosenIndex].isFaceUp.toggle()
+    }
+    
+    func index(of card: Card) -> Int {
+        for index in cards.indices {
+            if cards[index].id == card.id {
+                return index
+            }
+        }
+        return 0 //FIXME: bogus!
     }
     
     //otherwise, it will not allow to shuffle self is immutable
