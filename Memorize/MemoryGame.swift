@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> {
+struct MemoryGame<CardContent> where CardContent: Equatable {
     
     //only set is private, read is public
     private(set) var cards: Array<Card>
@@ -33,7 +33,13 @@ struct MemoryGame<CardContent> {
         print(cards)
     }
     
-    struct Card {
+    struct Card: Equatable {
+        static func == (lhs: Card, rhs: Card) -> Bool {
+            return lhs.isFaceUp == rhs.isFaceUp &&
+            lhs.isMatched == rhs.isMatched &&
+            lhs.content == rhs.content
+        }
+        
         //infer the type
         var isFaceUp = true
         var isMatched = false
