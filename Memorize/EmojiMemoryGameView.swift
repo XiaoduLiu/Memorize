@@ -27,12 +27,9 @@ struct EmojiMemoryGameView: View {
     var cards: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             ForEach(viewModel.cards) { card in
-                VStack (spacing: 0) {
-                    CardView(card)
-                        .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                        .padding(4)
-                    Text(card.id)
-                }
+                CardView(card)
+                    .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .padding(4)
             }
         }
         .foregroundColor(.orange)
