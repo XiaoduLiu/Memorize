@@ -24,7 +24,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     func choose(_ card: Card) {
-        
+        print("choose \(card)")
     }
     
     //otherwise, it will not allow to shuffle self is immutable

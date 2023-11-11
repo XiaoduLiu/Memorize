@@ -30,6 +30,9 @@ struct EmojiMemoryGameView: View {
                 CardView(card)
                     .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     .padding(4)
+                    .onTapGesture {
+                        viewModel.choose(card)
+                    }
             }
         }
         .foregroundColor(.orange)
