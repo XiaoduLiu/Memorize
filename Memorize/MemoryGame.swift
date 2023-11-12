@@ -23,14 +23,48 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
     
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            var faceUpCardIndeces = [Int]()
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    faceUpCardIndeces.append(index)
+                }
+            }
+            if faceUpCardIndeces.count == 1 {
+                return faceUpCardIndeces.first
+            } else {
+                return nil
+            }
+        }
+        set {
+            for index in cards.indices {
+                if index == newValue {
+                    cards[index].isFaceUp = true
+                } else {
+                    cards[index].isFaceUp = false
+                }
+            }
+        }
+    }
+    
     //variable for a func is let constant so you can not change it
     mutating func choose(_ card: Card) {
         //print("choose \(card)")
         //card.isFaceUp.toggle() (wrong)
-        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }){
-            cards[chosenIndex].isFaceUp.toggle()
+        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
+            if !cards[chosenIndex].isFaceUp && !cards[chosenIndex].isMatched {
+                if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                    if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                        cards[chosenIndex].isMatched = true
+                        cards[potentialMatchIndex].isMatched = true
+                    }
+                } else {
+                    indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+                }
+                cards[chosenIndex].isFaceUp = true
+            }
         }
-        
     }
     
     //otherwise, it will not allow to shuffle self is immutable
@@ -41,7 +75,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
         //infer the type
-        var isFaceUp = true
+        var isFaceUp = false
         var isMatched = false
         //make content as constant and no change after create
         let content: CardContent
