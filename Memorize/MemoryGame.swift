@@ -24,12 +24,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
-        get {
-            return cards.indices.filter {index in cards[index].isFaceUp }.only
-        }
-        set {
-            return cards.indices.forEach{ cards[$0].isFaceUp = (newValue == $0)}
-        }
+        get { cards.indices.filter {index in cards[index].isFaceUp }.only }
+        set { cards.indices.forEach{ cards[$0].isFaceUp = (newValue == $0)} }
     }
     
     //variable for a func is let constant so you can not change it
