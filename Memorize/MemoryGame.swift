@@ -27,19 +27,12 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     mutating func choose(_ card: Card) {
         //print("choose \(card)")
         //card.isFaceUp.toggle() (wrong)
-        if let chosenIndex = index(of: card) {
+        if let chosenIndex = cards.firstIndex(where: { cardToCheck in
+            cardToCheck.id == card.id
+        }){
             cards[chosenIndex].isFaceUp.toggle()
         }
         
-    }
-    
-    func index(of card: Card) -> Int? {
-        for index in cards.indices {
-            if cards[index].id == card.id {
-                return index
-            }
-        }
-        return nil
     }
     
     //otherwise, it will not allow to shuffle self is immutable
