@@ -26,7 +26,7 @@ struct EmojiMemoryGameView: View {
         .padding()
         
     }
-    var cards: some View {
+    private var cards: some View {
         let aspectRatio: CGFloat = 2/3
         return GeometryReader { geometry in
             let gridItemSize = gridItemWidthThatFits(
@@ -48,7 +48,7 @@ struct EmojiMemoryGameView: View {
         .foregroundColor(.orange)
     }
         
-    func gridItemWidthThatFits(
+    private func gridItemWidthThatFits(
         count: Int,
         size: CGSize,
         atAspectRatio aspectRatio: CGFloat
