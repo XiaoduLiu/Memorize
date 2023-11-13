@@ -64,12 +64,10 @@ struct EmojiMemoryGameView: View {
             let rowCount = (count / columnCount).rounded(.up)
             if rowCount * height < size.height {
                 return (size.width / columnCount).rounded(.down)
-                //return 65
             }
             columnCount += 1
         } while columnCount < count
         return min(size.width / count , size.height * aspectRatio).rounded(.down)
-        //return 65
     }
 
 }
