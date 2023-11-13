@@ -12,6 +12,8 @@ struct EmojiMemoryGameView: View {
     //never do this way
     @ObservedObject var viewModel: EmojiMemoryGame
     
+    private let aspectRatio: CGFloat = 2/3
+    
     var body: some View {
         VStack {
             cards
@@ -27,9 +29,7 @@ struct EmojiMemoryGameView: View {
         
     }
     
-    @ViewBuilder
     private var cards: some View {
-        let aspectRatio: CGFloat = 2/3
         GeometryReader { geometry in
             let gridItemSize = gridItemWidthThatFits(
                 count: viewModel.cards.count,
