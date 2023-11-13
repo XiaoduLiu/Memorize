@@ -14,25 +14,25 @@ struct EmojiMemoryGameView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                cards
-                    .animation(.default,value: viewModel.cards)
-                    //.background(Color.red)
-            }
+            cards
+                .animation(.default,value: viewModel.cards)
+                //.background(Color.red)
             Button("Shuffle") {
                 viewModel.shuffle()
             }
             //.background(Color.blue)
         }
-        .padding()
         //.background(Color.yellow)
+        .padding()
+        
     }
     var cards: some View {
-        GeometryReader { geometry in
+        let aspectRatio: CGFloat = 2/3
+        return GeometryReader { geometry in
             let gridItemSize = gridItemWidthThatFits(
                 count: viewModel.cards.count,
                 size: geometry.size,
-                atAspectRatio: 2/3
+                atAspectRatio: aspectRatio
             )
             LazyVGrid(columns: [GridItem(.adaptive(minimum: gridItemSize), spacing: 0)], spacing: 0) {
                 ForEach(viewModel.cards) { card in
@@ -61,12 +61,13 @@ struct EmojiMemoryGameView: View {
                     
             let rowCount = (count / columnCount).rounded(.up)
             if rowCount * height < size.height {
-                //return (size.width / columnCount).rounded(.down)
+                return (size.width / columnCount).rounded(.down)
+                //return 65
             }
             columnCount += 1
         } while columnCount < count
-        //return min(size.width / count, size.height * aspectRatio).rounded(.down)
-        return 65
+        return min(size.width / count , size.height * aspectRatio).rounded(.down)
+        //return 65
     }
 
 }
