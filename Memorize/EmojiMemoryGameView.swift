@@ -26,9 +26,11 @@ struct EmojiMemoryGameView: View {
         .padding()
         
     }
+    
+    @ViewBuilder
     private var cards: some View {
         let aspectRatio: CGFloat = 2/3
-        return GeometryReader { geometry in
+        GeometryReader { geometry in
             let gridItemSize = gridItemWidthThatFits(
                 count: viewModel.cards.count,
                 size: geometry.size,
