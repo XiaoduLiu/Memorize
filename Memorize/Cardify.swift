@@ -30,5 +30,10 @@ struct Cardify: ViewModifier {
         static let cornerRadius: CGFloat = 12
         static let lineWidth: CGFloat = 2
     }
+}
 
+extension View {
+    func cardify(isFaceUp: Bool) -> some View {
+        modifier(Cardify(isFaceUp: isFaceUp))
+    }
 }
