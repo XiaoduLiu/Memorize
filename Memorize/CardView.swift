@@ -18,21 +18,32 @@ struct CardView: View {
     var body: some View {
         ZStack {
             //view can only do local variable, if-else (switch) and list of views
-            let base = RoundedRectangle(cornerRadius: 12) //constant using let, variable using var
+            let base = RoundedRectangle(cornerRadius: Constants.cornerRadius) //constant using let, variable using var
             Group {
                 base.fill(.white)
-                base.strokeBorder(lineWidth: 2)
+                base.strokeBorder(lineWidth: Constants.lineWidth)
                 Text(card.content)
-                    .font(.system(size:200))
-                    .minimumScaleFactor(0.01)
+                    .font(.system(size:Constants.FountSize.largest))
+                    .minimumScaleFactor(Constants.FountSize.scaleFactory)
                     .aspectRatio(1, contentMode: .fit)
                     .multilineTextAlignment(.center)
-                    .padding(10)
+                    .padding(Constants.inset)
             }
             .opacity(card.isFaceUp ? 1 : 0)
             base.fill().opacity(card.isFaceUp ? 0 : 1)
         }
         .opacity(card.isFaceUp || !card.isMatched ? 1 :0)
+    }
+    
+    private struct Constants {
+        static let cornerRadius: CGFloat = 12
+        static let lineWidth: CGFloat = 2
+        static let inset: CGFloat = 5
+        struct FountSize {
+            static let largest: CGFloat = 200
+            static let smallest: CGFloat = 10
+            static let scaleFactory = smallest / largest
+        }
     }
 }
 
