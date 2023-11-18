@@ -55,7 +55,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
         //infer the type
-        var isFaceUp = false
+        var isFaceUp = true
         var isMatched = false
         //make content as constant and no change after create
         let content: CardContent
