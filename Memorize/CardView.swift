@@ -22,12 +22,8 @@ struct CardView: View {
             Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: Constants.lineWidth)
-                Path { p in
-                    p.move(to: .zero)
-                    p.addLine(to: CGPoint(x: 50, y: 200))
-                }
-                .stroke(lineWidth: 6)
                 Pie(endAngle: .degrees(240))
+                    //.stroke(lineWidth: 6)  default is fill
                     .opacity(Constants.Pie.opacity)
                     .overlay (
                             Text(card.content)
