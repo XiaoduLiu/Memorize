@@ -15,12 +15,10 @@ struct Cardify: ViewModifier {
         ZStack {
             //view can only do local variable, if-else (switch) and list of views
             let base = RoundedRectangle(cornerRadius: Constants.cornerRadius) //constant using let, variable using var
-            Group {
-                base.fill(.white)
-                base.strokeBorder(lineWidth: Constants.lineWidth)
-                content
-            }
-            .opacity(isFaceUp ? 1 : 0)
+            base.strokeBorder(lineWidth: Constants.lineWidth)
+                .background(base.fill(.white))
+                .overlay(content)
+                .opacity(isFaceUp ? 1 : 0)
             base.fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
