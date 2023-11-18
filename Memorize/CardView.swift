@@ -26,6 +26,8 @@ struct CardView: View {
                     .font(.system(size:200))
                     .minimumScaleFactor(0.01)
                     .aspectRatio(1, contentMode: .fit)
+                    .multilineTextAlignment(.center)
+                    .padding(10)
             }
             .opacity(card.isFaceUp ? 1 : 0)
             base.fill().opacity(card.isFaceUp ? 0 : 1)
@@ -37,8 +39,18 @@ struct CardView: View {
 struct CardView_Preview: PreviewProvider {
     typealias Card = MemoryGame<String>.Card
     static var previews: some View {
-        CardView(Card(content: "X", id: "test2"))
-            .padding()
-            .foregroundColor(.green)
+        VStack {
+            HStack {
+                CardView(Card(isFaceUp: true, content: "X", id: "test2"))
+                CardView(Card(content: "X", id: "test2"))
+            }
+            HStack {
+                CardView(Card(isFaceUp: true, isMatched: true,content: "This is a long line of text", id: "test2"))
+                CardView(Card(isMatched: true, content: "", id: "test2"))
+            }
+        }
+        .padding()
+        .foregroundColor(.green)
+    
     }
 }
