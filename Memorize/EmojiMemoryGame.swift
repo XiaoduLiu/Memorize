@@ -10,6 +10,9 @@ import SwiftUI
 
 
 class EmojiMemoryGame: ObservableObject {
+    
+    typealias Card = MemoryGame<String>.Card
+    
     //private static global fix the init issue
     private static let emojis = ["🚗", "💀","👻", "🎃", "😌", "🐶","🐱","🐼", "🐮", "🐷", "🐨", "🦁"]
     
@@ -28,7 +31,7 @@ class EmojiMemoryGame: ObservableObject {
     //for last one as function, the function can move outside
     @Published private var model: MemoryGame<String> = createMemoryGame()
     
-    var cards: Array<MemoryGame<String>.Card> {
+    var cards: Array<Card> {
         return model.cards
     }
     
@@ -39,7 +42,7 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     //intend function
-    func choose(_ card: MemoryGame<String>.Card) {
+    func choose(_ card: Card) {
         model.choose(card)
     }
     

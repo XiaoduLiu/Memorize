@@ -43,32 +43,6 @@ struct EmojiMemoryGameView: View {
 
 }
 
-struct CardView: View {
-    let card: MemoryGame<String>.Card
-    
-    init(_ card: MemoryGame<String>.Card) {
-        self.card = card
-    }
-    
-    var body: some View {
-        ZStack {
-            //view can only do local variable, if-else (switch) and list of views
-            let base = RoundedRectangle(cornerRadius: 12) //constant using let, variable using var
-            Group {
-                base.fill(.white)
-                base.strokeBorder(lineWidth: 2)
-                Text(card.content)
-                    .font(.system(size:200))
-                    .minimumScaleFactor(0.01)
-                    .aspectRatio(1, contentMode: .fit)
-            }
-            .opacity(card.isFaceUp ? 1 : 0)
-            base.fill().opacity(card.isFaceUp ? 0 : 1)
-        }
-        .opacity(card.isFaceUp || !card.isMatched ? 1 :0)
-    }
-}
-
 struct EmojiMemoryGameView_Preview: PreviewProvider {
     static var previews: some View {
         EmojiMemoryGameView(viewModel: EmojiMemoryGame())
