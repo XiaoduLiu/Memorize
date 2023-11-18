@@ -16,28 +16,19 @@ struct CardView: View {
     }
     
     var body: some View {
-        ZStack {
-            //view can only do local variable, if-else (switch) and list of views
-            let base = RoundedRectangle(cornerRadius: Constants.cornerRadius) //constant using let, variable using var
-            Group {
-                base.fill(.white)
-                base.strokeBorder(lineWidth: Constants.lineWidth)
-                Pie(endAngle: .degrees(240))
-                    //.stroke(lineWidth: 6)  default is fill
-                    .opacity(Constants.Pie.opacity)
-                    .overlay (
-                            Text(card.content)
-                                .font(.system(size:Constants.FountSize.largest))
-                                .minimumScaleFactor(Constants.FountSize.scaleFactory)
-                                .aspectRatio(1, contentMode: .fit)
-                                .multilineTextAlignment(.center)
-                                .padding(Constants.Pie.padding)
-                )
-                .padding(Constants.inset)
-            }
-            .opacity(card.isFaceUp ? 1 : 0)
-            base.fill().opacity(card.isFaceUp ? 0 : 1)
-        }
+        Pie(endAngle: .degrees(240))
+            //.stroke(lineWidth: 6)  default is fill
+            .opacity(Constants.Pie.opacity)
+            .overlay (
+                    Text(card.content)
+                        .font(.system(size:Constants.FountSize.largest))
+                        .minimumScaleFactor(Constants.FountSize.scaleFactory)
+                        .aspectRatio(1, contentMode: .fit)
+                        .multilineTextAlignment(.center)
+                        .padding(Constants.Pie.padding)
+        )
+        .padding(Constants.inset)
+        .modifier(Cardify(isFaceUp: card.isFaceUp))
         .opacity(card.isFaceUp || !card.isMatched ? 1 :0)
     }
     

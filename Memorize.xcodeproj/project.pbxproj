@@ -19,6 +19,7 @@
 		B670D2772AEDB6EF00B8AECB /* MemorizeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B670D2762AEDB6EF00B8AECB /* MemorizeUITestsLaunchTests.swift */; };
 		B69A71C12B083915007CEF63 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C02B083915007CEF63 /* CardView.swift */; };
 		B69A71C32B09713C007CEF63 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C22B09713C007CEF63 /* Pie.swift */; };
+		B69A71C52B097E32007CEF63 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C42B097E32007CEF63 /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B670D2762AEDB6EF00B8AECB /* MemorizeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B69A71C02B083915007CEF63 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B69A71C22B09713C007CEF63 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		B69A71C42B097E32007CEF63 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		B670D2582AEDB6ED00B8AECB /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
+				B69A71C42B097E32007CEF63 /* Cardify.swift */,
 				B69A71C22B09713C007CEF63 /* Pie.swift */,
 				B69A71C02B083915007CEF63 /* CardView.swift */,
 				B60F7B3A2B01A4740001668B /* AspectVGrid.swift */,
@@ -274,6 +277,7 @@
 			files = (
 				B670D25C2AEDB6ED00B8AECB /* EmojiMemoryGameView.swift in Sources */,
 				B670D25A2AEDB6ED00B8AECB /* MemorizeApp.swift in Sources */,
+				B69A71C52B097E32007CEF63 /* Cardify.swift in Sources */,
 				B6299A302AFB0E5D001996A9 /* MemoryGame.swift in Sources */,
 				B60F7B3B2B01A4740001668B /* AspectVGrid.swift in Sources */,
 				B69A71C32B09713C007CEF63 /* Pie.swift in Sources */,
