@@ -22,7 +22,7 @@ struct EmojiMemoryGameView: View {
                 //.animation(.default, value: viewModel.cards)
                 //.background(Color.red)
             Button("Shuffle") {
-                withAnimation(.easeInOut(duration:1)){
+                withAnimation(.interactiveSpring(response:1, dampingFraction: 0.5)){
                     viewModel.shuffle()
                 }
             }
