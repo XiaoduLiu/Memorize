@@ -18,7 +18,7 @@ class EmojiMemoryGame: ObservableObject {
     
     //make a static function to allow it can be used in init
     private static func createMemoryGame() -> MemoryGame<String> {
-        return MemoryGame<String>(numberOfPairsOfCards: 12) { pariIndex in
+        return MemoryGame<String>(numberOfPairsOfCards: 2) { pariIndex in
             if emojis.indices.contains(pariIndex) {
                 return emojis[pariIndex]
             } else {

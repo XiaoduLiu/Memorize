@@ -27,7 +27,7 @@ struct CardView: View {
                         .multilineTextAlignment(.center)
                         .padding(Constants.Pie.padding)
                         .rotationEffect(.degrees(card.isMatched ? 360 : 0))
-                        .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: card.isMatched)
+                        .animation(.spin(duration: 1), value: card.isMatched)
         )
         .padding(Constants.inset)
         .cardify(isFaceUp: card.isFaceUp)
@@ -50,21 +50,29 @@ struct CardView: View {
     }
 }
 
-struct CardView_Preview: PreviewProvider {
-    typealias Card = MemoryGame<String>.Card
-    static var previews: some View {
-        VStack {
-            HStack {
-                CardView(Card(isFaceUp: true, content: "X", id: "test2"))
-                CardView(Card(content: "X", id: "test2"))
-            }
-            HStack {
-                CardView(Card(isFaceUp: true, isMatched: true,content: "This is a long line of text", id: "test2"))
-                CardView(Card(isMatched: true, content: "", id: "test2"))
-            }
-        }
-        .padding()
-        .foregroundColor(.green)
-    
+extension Animation {
+    static func spin(duration: TimeInterval) -> Animation {
+        .linear(duration: duration).repeatForever(autoreverses: false)
     }
 }
+
+/**
+ struct CardView_Preview: PreviewProvider {
+ typealias Card = MemoryGame<String>.Card
+ static var previews: some View {
+ VStack {
+ HStack {
+ CardView(Card(isFaceUp: true, content: "X", id: "test2"))
+ CardView(Card(content: "X", id: "test2"))
+ }
+ HStack {
+ CardView(Card(isFaceUp: true, isMatched: true,content: "This is a long line of text", id: "test2"))
+ CardView(Card(isMatched: true, content: "", id: "test2"))
+ }
+ }
+ .padding()
+ .foregroundColor(.green)
+ 
+ }
+ }
+ */
