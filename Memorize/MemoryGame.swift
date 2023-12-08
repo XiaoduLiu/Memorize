@@ -12,6 +12,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     //only set is private, read is public
     private(set) var cards: Array<Card>
     
+    private(set) var score = 0
+    
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         //cards = Array<Card>()
         cards = []
@@ -38,6 +40,15 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
+                        score += 2
+                    } else {
+                        if cards[chosenIndex].hasBeenSeen {
+                            score -= 1
+                        }
+                        if cards[potentialMatchIndex].hasBeenSeen {
+                            score -= 1
+                        }
+                        
                     }
                 } else {
                     indexOfTheOneAndOnlyFaceUpCard = chosenIndex
@@ -54,9 +65,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
-        //infer the type
-        var isFaceUp = false
+        //infer the type, properties observer
+        var isFaceUp = false {
+            didSet {
+                if oldValue && !isFaceUp {
+                    hasBeenSeen = true
+                }
+            }
+        }
         var isMatched = false
+        var hasBeenSeen = false
         //make content as constant and no change after create
         let content: CardContent
         

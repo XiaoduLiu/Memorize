@@ -19,14 +19,19 @@ struct EmojiMemoryGameView: View {
         VStack {
             cards
                 .foregroundColor(viewModel.color)
-                //.animation(.default, value: viewModel.cards)
-                //.background(Color.red)
-            Button("Shuffle") {
-                withAnimation {
-                    viewModel.shuffle()
+            //.animation(.default, value: viewModel.cards)
+            //.background(Color.red)
+            HStack {
+                Text("Score: \(viewModel.score)")
+                Spacer()
+                Button("Shuffle") {
+                    withAnimation {
+                        viewModel.shuffle()
+                    }
                 }
             }
             //.background(Color.blue)
+            .font(.largeTitle)
         }
         //.background(Color.yellow)
         .padding()
