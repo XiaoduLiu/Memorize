@@ -36,6 +36,7 @@ struct EmojiMemoryGameView: View {
     
     private var score: some View {
         Text("Score: \(viewModel.score)")
+            .animation(nil)
     }
     private var shuffle: some View {
         Button("Shuffle") {
@@ -51,7 +52,8 @@ struct EmojiMemoryGameView: View {
                 CardView(card)
                     .padding(spacing)
                     .onTapGesture {
-                        withAnimation(.easeInOut(duration: 3)) {
+                        //withAnimation(.easeInOut(duration: 3)) {
+                        withAnimation {
                             viewModel.choose(card)
                         }
                     }
