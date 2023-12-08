@@ -20,6 +20,7 @@
 		B69A71C12B083915007CEF63 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C02B083915007CEF63 /* CardView.swift */; };
 		B69A71C32B09713C007CEF63 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C22B09713C007CEF63 /* Pie.swift */; };
 		B69A71C52B097E32007CEF63 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A71C42B097E32007CEF63 /* Cardify.swift */; };
+		B6A41D272B2298110047DFC1 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A41D262B2298110047DFC1 /* FlyingNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		B69A71C02B083915007CEF63 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B69A71C22B09713C007CEF63 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		B69A71C42B097E32007CEF63 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		B6A41D262B2298110047DFC1 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				B69A71C42B097E32007CEF63 /* Cardify.swift */,
 				B69A71C22B09713C007CEF63 /* Pie.swift */,
+				B6A41D262B2298110047DFC1 /* FlyingNumber.swift */,
 				B69A71C02B083915007CEF63 /* CardView.swift */,
 				B60F7B3A2B01A4740001668B /* AspectVGrid.swift */,
 				B670D2592AEDB6ED00B8AECB /* MemorizeApp.swift */,
@@ -280,6 +283,7 @@
 				B69A71C52B097E32007CEF63 /* Cardify.swift in Sources */,
 				B6299A302AFB0E5D001996A9 /* MemoryGame.swift in Sources */,
 				B60F7B3B2B01A4740001668B /* AspectVGrid.swift in Sources */,
+				B6A41D272B2298110047DFC1 /* FlyingNumber.swift in Sources */,
 				B69A71C32B09713C007CEF63 /* Pie.swift in Sources */,
 				B69A71C12B083915007CEF63 /* CardView.swift in Sources */,
 				B6299A322AFB1072001996A9 /* EmojiMemoryGame.swift in Sources */,

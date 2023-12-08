@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
+    typealias Card = MemoryGame<String>.Card
     
     //never do this way
     @ObservedObject var viewModel: EmojiMemoryGame
@@ -51,6 +52,7 @@ struct EmojiMemoryGameView: View {
             VStack {
                 CardView(card)
                     .padding(spacing)
+                    .overlay(FlyingNumber(number: scoreChange(causedBy: card)))
                     .onTapGesture {
                         //withAnimation(.easeInOut(duration: 3)) {
                         withAnimation {
@@ -60,7 +62,10 @@ struct EmojiMemoryGameView: View {
             }
         }
     }
-
+    
+    private func scoreChange(causedBy card: Card) -> Int {
+        return 0
+    }
 }
 
 struct EmojiMemoryGameView_Preview: PreviewProvider {
